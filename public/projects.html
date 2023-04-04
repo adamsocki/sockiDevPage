@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>
+            My Projects</h1>
+    </header>
+    <main>
+        <div id="filter">
+            <label><input type="checkbox" name="filter" value="GameDev"> GameDev</label>
+            <label><input type="checkbox" name="filter" value="GIS"> GIS</label>
+            <label><input type="checkbox" name="filter" value="c++"> C++</label>
+        </div>
+        <div id="projects">
+            <!-- Add your projects here -->
+            <div class="project" data-project-id="1" data-tags="GameDev,GIS">
+                <h2>Project 1</h2>
+            </div>
+            <div class="project" data-project-id="2" data-tags="GIS,c++">
+                <h2>Project 2</h2>
+            </div>
+        </div>
+    </main>
+    <script src="js/scripts.js"></script>
+    <script src="project-details.js"></script>
+    <script>
+      document.querySelectorAll('.project').forEach((project) => {
+        project.addEventListener('click', function () {
+          const projectId = this.dataset.projectId;
+          window.location.href = `project-details.html?id=${projectId}`;
+        });
+      });
+
+      document.querySelectorAll('#filter input[type="checkbox"]').forEach((checkbox) => {
+        checkbox.addEventListener('change', function () {
+          filterProjects();
+        });
+      });
+
+      function filterProjects() {
+        const checkboxes = document.querySelectorAll('#filter input[type="checkbox"]:checked');
+        const selectedTags = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+        document.querySelectorAll('.project').forEach((project) => {
+          const projectTags = project.dataset.tags.split(',');
+          const shouldDisplay = selectedTags.every(tag => projectTags.includes(tag));
+          project.style.display = shouldDisplay || selectedTags.length === 0 ? 'block' : 'none';
+        });
+      }
+    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Adam Socki, <span id="current-year"></span>. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

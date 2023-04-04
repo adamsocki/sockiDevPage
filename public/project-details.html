@@ -1,0 +1,62 @@
+<!-- project-details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button id="back-btn">Back</button>
+    <header>
+        <h1>Project Title</h1>
+        <div class="tags">
+            <span class="tag">GameDev</span>
+            <span class="tag">GIS</span>
+            <span class="tag">C++</span>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Project Description</h2>
+            <p>
+                Detailed project description goes here.
+            </p>
+        </section>
+
+        <section>
+            <h2>Code Snippets</h2>
+            <div class="code-snippet">
+                <h3>Snippet Title 1</h3>
+                <p>Explanation of the code snippet 1.</p>
+                <pre><code>
+function exampleFunction1() {
+    // Your code snippet 1 goes here
+}
+                </code></pre>
+            </div>
+            <div class="code-snippet">
+                <h3>Snippet Title 2</h3>
+                <p>Explanation of the code snippet 2.</p>
+                <pre><code>
+function exampleFunction2() {
+    // Your code snippet 2 goes here
+}
+                </code></pre>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById("back-btn").addEventListener("click", function () {
+            window.history.back();
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Adam Socki, <span id="current-year"></span>. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
