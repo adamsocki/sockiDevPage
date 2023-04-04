@@ -7,11 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// navigation.js
 const navbar = `
     <nav>
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="photography.html">Photography Portfolio</a>
+        <div class="dropdown">
+            <button class="dropdown-btn">Menu</button>
+            <div class="dropdown-content">
+                <a href="projects.html">Projects</a>
+                <a href="photography.html">Photography Portfolio</a>
+            </div>
+        </div>
     </nav>
 `;
 
