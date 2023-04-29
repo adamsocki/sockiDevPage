@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Adam Socki | Portfolio</title>
 </head>
 <body>
-    <header>
-        <h1>My Portfolio</h1>
-    </header>
-    <main>
-        <nav>
-            <ul class="main-menu">
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="photography.html">Photography</a></li>
-                
-                <!-- Add more items here -->
-            </ul>
-        </nav>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <p>&copy; Adam Socki, <span id="current-year"></span>. All rights reserved.</p>
-    </footer>
-    <script src="js/scripts.js"></script>
-    <script src="js/main.js"></script>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="subway/subway.html">Subway Map</a>
+    </nav>
+  </header>
+  <main>
+    <section class="welcome">
+      <h1>Adam Socki</h1>
+      <h2>Seasoned Transit Planner</h2>
+      <p class="counter">You've visited this site <span id="visitCount">0</span> times.</p>
+    </section>
+  </main>
+  <script>
+    // const visitCount = document.getElementById("visitCount");
+    // let count = localStorage.getItem("count");
+
+    // if (!count) {
+    //   count = 1;
+    // } else {
+    //   count = parseInt(count) + 1;
+    // }
+
+    // localStorage.setItem("count", count);
+    // visitCount.textContent = count;
+  </script>
 </body>
 </html>
