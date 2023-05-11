@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Subway Line Map</title>
+    <style>
+        .station {
+            fill: #f00;
+            cursor: pointer;
+        }
+        .line {
+            stroke: #000;
+            stroke-width: 2;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="summary">
-    <div id="lineCount">Number of Lines: 0</div>
-    <div id="stationCount">Number of Stations: 0</div>
-  </div>
-  <button onclick="addLine()">Add New Line</button>
-  <div class="map-container"></div>
-  <script src="script.js"></script>
+    <div id="subway"></div>
+
+    <script>
+        var svg = d3.select("#subway")
+                    .append("svg")
+                    .attr("width", 600)
+                    .attr("height", 600);
+        
+        var stations = [
+            {id: 1, x: 50, y: 50, line: 1},
+            {id: 2, x: 150, y: 150, line: 1},
+            {id: 3, x: 250, y: 250, line: 1},
+            {id: 4, x: 350, y: 350, line: 2},
+            {id: 5, x: 450, y: 450, line: 2},
+        ];
+        
+        var lines = d3.nest()
+                      .key(function(d) { return d.line; })
+                      .entries(stations);
+        
+        lines.forEach(function(line) {
+            var path = d3.path();
+            path.moveTo(line.values[0].x, line.values[0].y);
+            for (var i = 1; i < line.values.length; i++) {
+                path.lineTo(line.values[i].x, line.values[i].y);
+            }
+            svg.append("path")
+               .attr("d", path.toString())
+               .attr("class", "line");
+        });
+        
+        var circle = svg.selectAll("circle")
+                        .data(stations)
+                        .enter().append("circle")
+                        .attr("class", "station")
+                        .attr("cx", function(d) { return d.x; })
+                        .attr("cy", function(d) { return d.y; })
+                        .attr("r", 10)
+                        .call(d3.drag().on("start", dragstarted).on("drag", dragged));
+        
+        function dragstarted(d) {
+            d3.select(this).raise().classed("active", true);
+        }
+        
+        function dragged(d) {
+            d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+        }
+    </script>
 </body>
 </html>

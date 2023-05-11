@@ -1,0 +1,13 @@
+.station {
+  fill: #f00;
+  cursor: pointer;
+}
+
+.line {
+  stroke: #000;
+  stroke-width: 2;
+}
+
+#buttons button {
+  margin-right: 10px;
+}
