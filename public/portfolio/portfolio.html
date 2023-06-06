@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Adam Socki | Portfolio</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../portfolio/portfolio.html">Portfolio</a>
+      <a href="../subway/subwaySVG.html">Subway Map</a>
+    </nav>
+  </header>
+  <main>
+    <section class="welcome">
+      <h1>Adam Socki's Portfolio</h1>
+      <h2>A collection of my work</h2>
+    </section>
+
+    <section class="tags">
+      <div class="tag" onclick="filterSelection('all')"> All</div>
+      <div class="tag" onclick="filterSelection('urban-design')"> Urban Design</div>
+      <div class="tag" onclick="filterSelection('programming')"> Programming</div>
+      <div class="tag" onclick="filterSelection('game-dev')"> Game Development</div>
+      <div class="tag" onclick="filterSelection('photography')"> Photography</div>
+      
+
+    </section>
+
+    <section class="photo-grid">
+      <!-- Each project block includes data-keywords attribute with comma-separated keywords -->
+      <div class="project-block" data-keywords="programming">
+        <a href="projects/marketing/project1.html" class="project-block">
+          <img src="../images/project1-thumbnail.jpg" alt="Project 1 thumbnail">
+          <div class="project-info">
+            <h3>Expansion of Mosaic Game Engine</h3>
+            <p>The goal was to expand the capabilities of Mosaic Game Engine.</p>
+            <p class="project-date">Published: June 2023</p>
+            <div class="project-tags">
+              <span class="tag">programming</span>
+            </div>        
+          </div>
+        </a>
+      </div>
+      <div class="project-block" data-keywords="photography, urban-design">
+        <a href="projects/marketing/project2.html" class="project-block">
+          <img src="../images/project2-thumbnail.jpg" alt="Project 2 thumbnail">
+          <div class="project-info">
+            <h3>Photography from Trip to New York</h3>
+            <p>A few photographs from my recent trip to NYC.</p>
+            <p class="project-date">Published: June 2023</p>
+            
+          </div>
+
+        </a>
+        <div class="project-tags">
+          <span class="tag">programming</span>
+          <span class="tag">urban-design</span>
+
+        </div> 
+      </div>
+    </section>
+  </main>
+  <script src="../js/portfolio.js"></script>
+</body>
+</html>
